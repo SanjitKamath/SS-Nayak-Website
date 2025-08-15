@@ -167,6 +167,23 @@ a {
   margin-bottom: 30px;
 }
 
+.gold-divider {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.gold-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: #c5a572;
+  border-radius: 2px;
+}
+
 .partner-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -180,37 +197,28 @@ a {
   border: 1px solid #eee;
   border-radius: 8px;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.partner-photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 auto 10px;
-  object-fit: cover;
-  border: 2px solid #c5a572;
 }
 
 .partner-card h3 {
   font-family: 'Merriweather', serif;
   font-size: 1.2rem;
+  color: #1e2a38;
   margin-bottom: 10px;
 }
 
-.partner-info p {
+.partner-card p {
   font-size: 0.9rem;
   margin-bottom: 8px;
 }
 
-.partner-info a {
+.partner-card a {
   color: #1e2a38;
+  text-decoration: none;
 }
-.partner-info a:hover {
+
+.partner-card a:hover {
   color: #c5a572;
 }
 
