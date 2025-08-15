@@ -1,4 +1,3 @@
-# Contact Us
 
 ## Bangalore Office
 302, 3rd Floor, Shreshta Bumi  
