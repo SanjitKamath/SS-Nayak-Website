@@ -15,5 +15,9 @@ function loadMarkdown(file, elementId) {
         .then(text => {
             document.getElementById(elementId).innerHTML = marked.parse(text);
         })
-        .catch(err => console.error("Error loading " + file, err));
+        .catch(err => {
+            console.error("Error loading " + file, err);
+            document.getElementById(elementId).innerHTML =
+                "<p>Content currently unavailable.</p>";
+        });
 }
