@@ -5,55 +5,69 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>S S Nayak & Associates</title>
 
-  <!-- marked (markdown -> html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Navbar -->
   <header class="site-header">
     <nav class="nav">
-      <div class="logo">S S Nayak & Associates</div>
-      <button class="burger" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+      <img src="assets/logo.png" alt="Logo" class="logo">
       <ul class="navlinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#partners">Our Partners</a></li>
+        <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
-
-    <section class="hero">
-      <div class="hero-inner">
-        <h1 id="firm-name">S S Nayak & Associates</h1>
-        <h2 id="firm-sub">Chartered Accountants</h2>
-        <p id="hero-desc" class="muted">Reliable advisory, audit, taxation and valuation services.</p>
-      </div>
-    </section>
   </header>
 
-  <main>
-    <section id="about" class="panel anim">
-      <h3 class="section-title">About Us</h3>
-      <div id="about-content" class="markdown"></div>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <h1 id="firm-name">S S NAYAK & ASSOCIATES</h1>
+    <h2>Chartered Accountants</h2>
+    <p class="est">Est. 2002</p>
+    <p id="hero-desc" class="muted">Loading...</p>
+  </section>
 
-    <section id="services" class="panel anim">
-      <h3 class="section-title">Our Services</h3>
-      <div id="services-content" class="markdown"></div>
-    </section>
+  <!-- About Us -->
+  <section id="about" class="two-col anim">
+    <div class="col-img">
+      <img src="assets/about-img.svg" alt="About illustration">
+    </div>
+    <div class="col-text markdown" id="about-content"></div>
+  </section>
 
-    <section id="partners" class="panel anim">
-      <h3 class="section-title">Our Partners</h3>
-      <div id="partners-content" class="markdown partners-grid"></div>
-    </section>
+  <!-- Law -->
+  <section id="law" class="two-col reverse anim">
+    <div class="col-text markdown" id="law-content"></div>
+    <div class="col-img">
+      <img src="assets/gavel.png" alt="Gavel icon">
+    </div>
+  </section>
 
-    <section id="contact" class="panel anim contact-panel">
-      <h3 class="section-title">Contact</h3>
-      <div id="contact-content" class="markdown"></div>
-    </section>
-  </main>
+  <!-- Partners -->
+  <section id="partners" class="panel anim">
+    <h3 class="section-title">Our Partners</h3>
+    <div id="partners-content" class="markdown partners-grid"></div>
+  </section>
 
+  <!-- Services -->
+  <section id="services" class="two-col anim">
+    <div class="col-img">
+      <img src="assets/box-icon.svg" alt="Box icon">
+    </div>
+    <div class="col-text markdown" id="services-content"></div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="panel anim">
+    <h3 class="section-title">Contact Us</h3>
+    <div id="contact-content" class="markdown"></div>
+  </section>
+
+  <!-- Footer -->
   <footer class="site-footer">
     <small>© <span id="footer-year"></span> S S Nayak & Associates</small>
   </footer>
