@@ -1,4 +1,3 @@
-# About Us
 
 **S S Nayak & Associates** was established in **2015**.
 
