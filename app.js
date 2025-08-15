@@ -1,3 +1,4 @@
+// simple markdown loader with safe fallbacks and heading-trimming
 const CONTENT = {
   about: "content/about.md",
   law: "content/law.md",
@@ -7,59 +8,104 @@ const CONTENT = {
 };
 
 async function fetchText(url) {
-  const r = await fetch(url);
-  return await r.text();
+  try {
+    // cache-buster so GitHub Pages serves latest during development
+    const res = await fetch(url + "?_=" + Date.now());
+    if (!res.ok) throw new Error("Fetch failed: " + res.status);
+    return await res.text();
+  } catch (e) {
+    console.warn("Failed fetching", url, e);
+    return null;
+  }
+}
+
+// remove an initial H1/H2 heading from markdown so page titles don't duplicate
+function removeLeadHeading(md) {
+  if (!md) return md;
+  return md.replace(/^\s{0,}#{1,2}\s.*(\r?\n)+/, "");
 }
 
 function mdToHtml(md) {
-  return marked.parse(md);
+  if (!md) return "";
+  try { return marked.parse(md); } catch (e) { console.warn("marked parse failed", e); return md; }
 }
 
+// render partners HTML robustly: split by heading nodes, create cards
 function renderPartnersHtml(html) {
-  const temp = document.createElement("div");
-  temp.innerHTML = html;
-  const nodes = Array.from(temp.children);
+  if (!html) return "";
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+  const children = Array.from(doc.body.children);
+
   const cards = [];
   let current = null;
-  nodes.forEach(n => {
-    if (/H[1-6]/i.test(n.tagName)) {
+  children.forEach(node => {
+    if (/^H[1-6]$/i.test(node.tagName)) {
       if (current) cards.push(current);
-      current = { title: n.textContent.trim(), body: [] };
+      current = { title: node.textContent.trim(), body: [] };
     } else {
       if (!current) current = { title: "", body: [] };
-      current.body.push(n.outerHTML);
+      current.body.push(node.outerHTML);
     }
   });
   if (current) cards.push(current);
-  if (cards.length >= 2) {
-    return `<div class="partners-grid">${cards.map(c => `<div class="card"><h4>${c.title}</h4>${c.body.join("")}</div>`).join("")}</div>`;
+
+  if (cards.length) {
+    return cards.map(c => {
+      return `<div class="partner-card"><h4>${c.title}</h4>${c.body.join("")}</div>`;
+    }).join("");
   }
+
+  // fallback: just return original HTML
   return html;
 }
 
 async function loadAll() {
-  const [aboutMd, lawMd, partnersMd, servicesMd, contactMd] = await Promise.all([
-    fetchText(CONTENT.about),
-    fetchText(CONTENT.law),
-    fetchText(CONTENT.partners),
-    fetchText(CONTENT.services),
-    fetchText(CONTENT.contact)
-  ]);
+  // fetch all md in parallel
+  const keys = Object.keys(CONTENT);
+  const promises = keys.map(k => fetchText(CONTENT[k]));
+  const results = await Promise.all(promises);
 
-  document.getElementById("about-content").innerHTML = mdToHtml(aboutMd);
-  document.getElementById("law-content").innerHTML = mdToHtml(lawMd);
-  document.getElementById("partners-content").innerHTML = renderPartnersHtml(mdToHtml(partnersMd));
-  document.getElementById("services-content").innerHTML = mdToHtml(servicesMd);
-  document.getElementById("contact-content").innerHTML = mdToHtml(contactMd);
+  const aboutMd = removeLeadHeading(results[0]);
+  const lawMd = removeLeadHeading(results[1]);
+  const partnersMd = results[2]; // keep headings for splitting into cards
+  const servicesMd = removeLeadHeading(results[3]);
+  const contactMd = removeLeadHeading(results[4]);
 
-  document.getElementById("footer-year").textContent = new Date().getFullYear();
+  // About
+  const aboutHtml = mdToHtml(aboutMd);
+  document.getElementById("about-content").innerHTML = aboutHtml || `<p>SS Nayak & Associates provides accounting, audit and tax advisory services.</p>`;
+
+  // Law
+  const lawHtml = mdToHtml(lawMd);
+  document.getElementById("law-content").innerHTML = lawHtml || `<p>We handle direct & indirect tax litigation and international tax advisory.</p>`;
+
+  // Partners (special rendering)
+  const partnersHtmlRendered = renderPartnersHtml(mdToHtml(partnersMd));
+  document.getElementById("partners-content").innerHTML = partnersHtmlRendered || document.getElementById("partners-content").innerHTML;
+
+  // Services
+  const servicesHtml = mdToHtml(servicesMd);
+  document.getElementById("services-content").innerHTML = servicesHtml || `<p>Tax Consulting, Audits, Business Advisory, Financial Planning.</p>`;
+
+  // Contact
+  const contactHtml = mdToHtml(contactMd);
+  document.getElementById("contact-content").innerHTML = contactHtml || `<p>Email: <a href="mailto:contact@ssnayak.com">contact@ssnayak.com</a></p>`;
+
+  // footer year
+  const fy = new Date().getFullYear();
+  const el = document.getElementById("footer-year");
+  if (el) el.textContent = fy;
+
   initScrollAnimations();
 }
 
 function initScrollAnimations() {
+  // keep simple: if IntersectionObserver supported, add 'in-view' to elements
+  if (!("IntersectionObserver" in window)) return;
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("in-view");
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("in-view");
     });
   }, { threshold: 0.15 });
   document.querySelectorAll(".anim").forEach(el => obs.observe(el));
