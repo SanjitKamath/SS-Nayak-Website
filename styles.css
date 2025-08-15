@@ -1,137 +1,262 @@
-/* --------- Base --------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
+/* ---------- Base Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: #faf8f4;               /* light cream like the reference */
-  color: #1e2a38;                    /* navy text */
-  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.65;
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-
-/* --------- Layout helpers --------- */
-.section { max-width: 1120px; margin: 72px auto; padding: 0 24px; }
-.card {
-  background: #fffdf9;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 22px 22px;
-}
-.section-title {
-  font-family: 'Merriweather', serif;
-  font-weight: 700;
-  font-size: 28px;
-  text-align: center;
-  color: #222b3a;
-  margin-bottom: 20px;
+  background-color: #faf8f4; /* light cream background */
+  color: #1e2a38; /* navy text */
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
 }
 
-/* --------- Navbar --------- */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ---------- Navbar ---------- */
 .site-header {
   background: #ffffff;
+  padding: 12px 40px;
   border-bottom: 1px solid #eee;
-  position: sticky; top: 0; z-index: 50;
 }
+
 .nav {
-  max-width: 1200px; margin: 0 auto;
-  padding: 14px 24px;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
 }
-.brand { display: flex; align-items: center; gap: 10px; min-height: 48px; }
-.logo { height: 40px; width: auto; }
-.logo.hide { display: none; } /* if image fails, keep layout clean */
 
-.navlinks { list-style: none; display: flex; gap: 36px; }
+.logo-container img {
+  height: 50px;
+  width: auto;
+}
+
+.navlinks {
+  display: flex;
+  gap: 30px;
+}
+
 .navlinks a {
-  font-weight: 600; font-size: 14.5px; color: #1e2a38;
+  color: #1e2a38;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
-.navlinks a:hover { color: #c5a572; } /* gold hover */
 
-/* --------- Hero --------- */
-.hero {
-  text-align: center; padding: 46px 24px 22px;
-  background: #ffffff;
-  border-bottom: 1px solid #f0ede7;
+.navlinks a:hover {
+  color: #c5a572; /* gold hover */
 }
+
+/* ---------- Hero Section ---------- */
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: #ffffff;
+}
+
 .hero h1 {
   font-family: 'Merriweather', serif;
-  letter-spacing: 6px;
-  font-size: 30px;
-  margin-bottom: 8px;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
+
 .hero h2 {
-  font-size: 22px; font-weight: 600; margin-bottom: 8px;
+  font-size: 1.4rem;
+  margin-top: 8px;
 }
+
 .hero .est {
-  font-family: 'Merriweather', serif; font-style: italic;
-  font-size: 14px; margin-bottom: 14px;
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 6px 0 12px;
 }
+
 .hero .muted {
-  font-size: 13.5px; color: #5b616a; max-width: 760px; margin: 0 auto 24px;
+  font-size: 1rem;
+  color: #555;
+  max-width: 700px;
+  margin: auto;
 }
 
-/* --------- Two-column sections --------- */
+/* ---------- Two-Column Sections ---------- */
 .two-col {
-  display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-}
-.two-col.reverse { grid-template-columns: 1fr 1.1fr; }
-.col-img { width: 100%; }
-.col-img.no-img { display: none; } /* if image fails, text still looks clean */
-.col-text p, .col-text li { font-size: 15px; color: #2b3442; }
-.col-text h1, .col-text h2, .col-text h3 {
-  font-family: 'Merriweather', serif; color: #222b3a; margin-bottom: 10px;
+  max-width: 1100px;
+  margin: 50px auto;
+  gap: 30px;
+  padding: 0 20px;
 }
 
-/* --------- Partners --------- */
-.partners { padding-top: 8px; }
-.partners-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+.two-col.reverse {
+  flex-direction: row-reverse;
 }
+
+.col-img {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+
+.col-text {
+  flex: 1;
+  min-width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.col-text h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.col-text p,
+.col-text li {
+  font-size: 0.95rem;
+}
+
+/* ---------- Gold divider for section headings ---------- */
+.gold-divider {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.gold-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: #c5a572;
+  border-radius: 2px;
+}
+
+/* ---------- Partners Section ---------- */
+.partners-section {
+  background: #ffffff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
 .partner-card {
-  border-radius: 10px;
-  padding: 18px;
-  background: linear-gradient(145deg, #ffffff 5%, #f3f3f3 100%);
-  border: 1px solid #ececec;
-  min-height: 118px;
-  display: flex; align-items: center;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
+
+.partner-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  object-fit: cover;
+  border: 2px solid #c5a572;
+}
+
 .partner-card h3 {
   font-family: 'Merriweather', serif;
-  font-size: 16px; font-weight: 700; color: #223048;
-  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
-.partner-card .details { margin-top: 8px; font-size: 14px; color: #3b4250; }
 
-/* --------- Services --------- */
-.markdown ul { padding-left: 20px; }
-.markdown li { margin: 6px 0; }
-
-/* --------- Contact --------- */
-.contact .contact-grid {
-  max-width: 980px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-  background: #ffffff; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px;
+.partner-info p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
 }
-.contact .contact-item {
-  display: grid; grid-template-columns: 22px 1fr; gap: 10px;
-  align-items: start;
-}
-.contact .contact-item img { width: 18px; height: 18px; margin-top: 3px; }
-.contact .contact-item p { font-size: 14px; color: #2b3442; }
 
-/* --------- Footer --------- */
+.partner-info a {
+  color: #1e2a38;
+}
+.partner-info a:hover {
+  color: #c5a572;
+}
+
+/* ---------- Contact Section ---------- */
+.panel {
+  background: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.contact-info img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- Footer ---------- */
 .site-footer {
-  text-align: center; padding: 20px 16px; margin-top: 40px;
-  color: #6b7380; font-size: 13px;
-  background: #ffffff; border-top: 1px solid #eee;
+  background: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  border-top: 1px solid #eee;
 }
 
-/* --------- Responsive --------- */
-@media (max-width: 980px) {
-  .two-col, .two-col.reverse { grid-template-columns: 1fr; }
-  .partners-grid { grid-template-columns: 1fr; }
-  .contact .contact-grid { grid-template-columns: 1fr; }
-  .navlinks { gap: 20px; }
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .two-col {
+    flex-direction: column;
+  }
+  .navlinks {
+    gap: 15px;
+    font-size: 0.9rem;
+  }
 }
