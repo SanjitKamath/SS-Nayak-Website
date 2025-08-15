@@ -2,112 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>S S Nayak & Associates</title>
 
-  <!-- fonts (headings + body) -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- marked for markdown -> HTML -->
+  
+  <!-- Markdown Parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- NAVBAR: logo left, links right -->
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <div class="logo" aria-hidden="false">
-        <img src="assets/logo.png" alt="S S Nayak & Associates logo">
-      </div>
 
-      <ul class="navlinks" role="menubar">
-        <li role="none"><a role="menuitem" href="#about">About Us</a></li>
-        <li role="none"><a role="menuitem" href="#services">Our Services</a></li>
-        <li role="none"><a role="menuitem" href="#partners">Our Partners</a></li>
-        <li role="none"><a role="menuitem" href="#contact">Contact Us</a></li>
+  <!-- Navbar -->
+  <header class="site-header">
+    <nav class="nav">
+      <img src="assets/logo.png" alt="S S Nayak & Associates Logo" class="logo">
+      <ul class="navlinks">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#partners">Our Partners</a></li>
+        <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO (firm name centered like your screenshot) -->
+  <!-- Hero -->
   <section class="hero">
-    <h1 id="firm-name">S S NAYAK & ASSOCIATES</h1>
-    <h2 class="subhead">Chartered Accountants</h2>
+    <h1>S S NAYAK & ASSOCIATES</h1>
+    <h2>Chartered Accountants</h2>
     <p class="est">Est. 2002</p>
-    <p id="hero-desc" class="muted">Trusted advisors in finance, tax and audit services.</p>
+    <p id="hero-desc" class="muted">Providing excellence in auditing, taxation, and consultancy for over two decades.</p>
   </section>
 
-  <!-- ABOUT (two-column: image left, text right) -->
+  <!-- About -->
   <section id="about" class="two-col anim">
     <div class="col-img">
       <img src="assets/about-img.svg" alt="About illustration">
     </div>
-    <div class="col-text">
-      <h3 class="section-title">About Us</h3>
-      <div id="about-content" class="markdown">
-        <!-- fallback content shown if markdown fails -->
-        <p><strong>SS Nayak & Associates</strong> provides accounting, audit and tax advisory services with deep experience across industries.</p>
-      </div>
-    </div>
+    <div class="col-text markdown" id="about-content"></div>
   </section>
 
-  <!-- LAW / SPECIALTY -->
+  <!-- Law -->
   <section id="law" class="two-col reverse anim">
     <div class="col-text">
-      <h3 class="section-title">Our Legal & Tax Practice</h3>
-      <div id="law-content" class="markdown">
-        <p>We handle direct & indirect tax litigation, international tax advisory and fundraising support.</p>
-      </div>
+      <h2 class="section-title">Law & Compliance</h2>
+      <p>We ensure strict compliance with the latest statutory requirements, keeping your business secure and future-ready.</p>
     </div>
     <div class="col-img">
       <img src="assets/gavel.png" alt="Gavel icon">
     </div>
   </section>
 
-  <!-- PARTNERS (text only — populated from partners.md) -->
-  <section id="partners" class="partners-section anim">
-    <div class="container">
-      <h3 class="section-title">Our Partners</h3>
-      <div id="partners-content">
-        <!-- partners.md will be rendered here; fallback below if fetch fails -->
-        <div class="partner-card">
-          <h4>CA Sanketh S Nayak</h4>
-          <p><strong>Qualified:</strong> 2012</p>
-          <p><strong>Mobile:</strong> <a href="tel:+919731923492">9731923492</a></p>
-        </div>
-        <div class="partner-card">
-          <h4>CA S S Nayak</h4>
-          <p><strong>Qualified:</strong> 1988</p>
-          <p><strong>Mobile:</strong> <a href="tel:+919845321005">9845321005</a></p>
-        </div>
-      </div>
-    </div>
+  <!-- Partners -->
+  <section id="partners" class="partners-section">
+    <h2 class="section-title">Our Partners</h2>
+    <div id="partners-content" class="markdown"></div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- Services -->
   <section id="services" class="two-col anim">
     <div class="col-img">
-      <img src="assets/box-icon.svg" alt="Services icon">
+      <img src="assets/box-icon.svg" alt="Box icon">
     </div>
-    <div class="col-text">
-      <h3 class="section-title">Our Services</h3>
-      <div id="services-content" class="markdown">
-        <p>Tax Consulting, Audits, Business Advisory, Financial Planning.</p>
-      </div>
-    </div>
+    <div class="col-text markdown" id="services-content"></div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- Contact -->
   <section id="contact" class="panel anim">
-    <h3 class="section-title">Contact Us</h3>
-    <div id="contact-content" class="markdown">
-      <p>Email: <a href="mailto:contact@ssnayak.com">contact@ssnayak.com</a></p>
-      <p>Phone: +91-9876543210</p>
-    </div>
+    <h2 class="section-title">Contact Us</h2>
+    <div id="contact-content" class="markdown"></div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="site-footer">
     <small>© <span id="footer-year"></span> S S Nayak & Associates</small>
   </footer>
