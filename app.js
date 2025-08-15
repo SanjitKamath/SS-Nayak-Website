@@ -1,23 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Load Markdown files into sections
-    loadMarkdown("about.md", "about-content");
-    loadMarkdown("services.md", "services-content");
-    loadMarkdown("partners.md", "partners-content");
-    loadMarkdown("contact.md", "contact-content");
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = ["about", "services", "partners", "contact"];
+  sections.forEach(id => loadMarkdown(`${id}.md`, `${id}-content`));
 
-    // Set footer year
-    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
 });
 
 function loadMarkdown(file, elementId) {
-    fetch(file)
-        .then(response => response.text())
-        .then(text => {
-            document.getElementById(elementId).innerHTML = marked.parse(text);
-        })
-        .catch(err => {
-            console.error("Error loading " + file, err);
-            document.getElementById(elementId).innerHTML =
-                "<p>Content currently unavailable.</p>";
-        });
+  fetch(file)
+    .then(res => res.text())
+    .then(txt => { document.getElementById(elementId).innerHTML = marked.parse(txt); })
+    .catch(err => {
+      console.error(`Error loading ${file}`, err);
+      document.getElementById(elementId).innerHTML = "<p>Content unavailable</p>";
+    });
 }
