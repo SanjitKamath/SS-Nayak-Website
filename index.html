@@ -2,74 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>S S Nayak & Associates</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Markdown parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- NAVBAR -->
   <header class="site-header">
     <nav class="nav">
-      <img src="assets/logo.png" alt="Logo" class="logo">
+      <a class="brand" href="#">
+        <img src="assets/logo.png" alt="S S Nayak & Associates" class="logo" onerror="this.classList.add('hide')">
+      </a>
       <ul class="navlinks">
         <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Our Services</a></li>
+        <li><a href="#services">Our services</a></li>
         <li><a href="#partners">Our Partners</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <h1 id="firm-name">S S NAYAK & ASSOCIATES</h1>
+    <h1>S S NAYAK &amp; ASSOCIATES</h1>
     <h2>Chartered Accountants</h2>
     <p class="est">Est. 2002</p>
-    <p id="hero-desc" class="muted">Loading...</p>
+    <p id="hero-desc" class="muted">Loading…</p>
   </section>
 
-  <!-- About Us -->
-  <section id="about" class="two-col anim">
+  <!-- ABOUT -->
+  <section id="about" class="section two-col">
     <div class="col-img">
-      <img src="assets/about-img.svg" alt="About illustration">
+      <img src="assets/about-img.svg" alt="About illustration" onerror="this.closest('.col-img').classList.add('no-img')">
     </div>
-    <div class="col-text markdown" id="about-content"></div>
+    <div class="col-text card markdown" id="about-content">Loading…</div>
   </section>
 
-  <!-- Law -->
-  <section id="law" class="two-col reverse anim">
-    <div class="col-text markdown" id="law-content"></div>
+  <!-- LAW -->
+  <section id="law" class="section two-col reverse">
     <div class="col-img">
-      <img src="assets/gavel.png" alt="Gavel icon">
+      <img src="assets/gavel.png" alt="Gavel" onerror="this.closest('.col-img').classList.add('no-img')">
     </div>
+    <div class="col-text card markdown" id="law-content">Loading…</div>
   </section>
 
-  <!-- Partners -->
-  <section id="partners" class="panel anim">
-    <h3 class="section-title">Our Partners</h3>
-    <div id="partners-content" class="markdown partners-grid"></div>
+  <!-- PARTNERS -->
+  <section id="partners" class="section partners">
+    <h2 class="section-title">Our Partners</h2>
+    <div id="partners-content" class="partners-grid">Loading…</div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="two-col anim">
+  <!-- SERVICES -->
+  <section id="services" class="section two-col">
     <div class="col-img">
-      <img src="assets/box-icon.svg" alt="Box icon">
+      <img src="assets/box-icon.svg" alt="Services" onerror="this.closest('.col-img').classList.add('no-img')">
     </div>
-    <div class="col-text markdown" id="services-content"></div>
+    <div class="col-text card markdown" id="services-content">Loading…</div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="panel anim">
-    <h3 class="section-title">Contact Us</h3>
-    <div id="contact-content" class="markdown"></div>
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div id="contact-content" class="contact-grid markdown">Loading…</div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <small>© <span id="footer-year"></span> S S Nayak & Associates</small>
+    <small>© <span id="yr"></span> S S Nayak &amp; Associates</small>
   </footer>
 
   <script src="app.js" defer></script>
