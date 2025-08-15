@@ -1,117 +1,201 @@
+/* ---------- Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
 /* ---------- Global Styles ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #faf8f4;
+    color: #1e2a38;
     line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
 }
 
-/* ---------- Container ---------- */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-/* ---------- Header ---------- */
-header {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #003366;
-    color: white;
+/* ---------- Navbar ---------- */
+.site-header {
+    background: white;
+    padding: 15px 40px;
+    border-bottom: 1px solid #eee;
 }
 
-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
 }
 
-header p {
+.logo {
+    height: 50px;
+}
+
+.navlinks {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.navlinks a {
+    text-decoration: none;
+    color: #1e2a38;
+    font-weight: 600;
     font-size: 1rem;
-    opacity: 0.85;
+    transition: color 0.3s ease;
+}
+
+.navlinks a:hover {
+    color: #c5a572;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.hero h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.hero h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    margin-top: 8px;
+}
+
+.hero .est {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin: 5px 0 15px;
+}
+
+.hero p.muted {
+    font-size: 0.95rem;
+    color: #555;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* ---------- Two-Column Sections ---------- */
+.two-col {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1100px;
+    margin: 60px auto;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.two-col.reverse {
+    flex-direction: row-reverse;
+}
+
+.col-img {
+    flex: 1;
+    min-width: 300px;
+}
+
+.col-text {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fdfdfb;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/* ---------- Section Titles ---------- */
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* ---------- Partners Section ---------- */
-section.partners {
+.partners-section {
     background: white;
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 50px 20px;
 }
 
-.partners h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    color: #003366;
-    margin-bottom: 25px;
-}
-
-/* Partner Card Layout */
-.partner {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.partner-card {
+    background: linear-gradient(135deg, #ffffff, #f4f4f4);
     padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fafafa;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 15px auto;
+    max-width: 900px;
+    border-radius: 6px;
+    border: 1px solid #eee;
 }
 
-.partner:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-}
-
-.partner h3 {
-    color: #003366;
+.partner-card h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
     margin-bottom: 8px;
 }
 
-.partner p {
-    margin: 5px 0;
+.partner-card p {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+/* ---------- Contact Section ---------- */
+.panel {
+    background: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#contact-content {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#contact-content p {
     font-size: 0.95rem;
 }
 
-/* Contact Info */
-.partner .contact {
-    margin-top: 10px;
-}
-
-.partner .contact a {
-    color: #0066cc;
+#contact-content a {
+    color: #1e2a38;
     text-decoration: none;
 }
 
-.partner .contact a:hover {
-    text-decoration: underline;
+#contact-content a:hover {
+    color: #c5a572;
 }
 
 /* ---------- Footer ---------- */
-footer {
+.site-footer {
+    background: white;
+    padding: 20px;
     text-align: center;
-    padding: 15px;
-    margin-top: 40px;
     font-size: 0.85rem;
-    color: #666;
+    color: #777;
+    border-top: 1px solid #eee;
 }
 
 /* ---------- Responsive ---------- */
-@media (min-width: 768px) {
-    .partner-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+    .navlinks {
         gap: 20px;
     }
-}
-
-@media (min-width: 1024px) {
-    .partner-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .two-col {
+        flex-direction: column;
     }
 }
