@@ -1,105 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>S S Nayak & Associates</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS Nayak & Associates</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="site-header">
-    <nav class="nav">
-      <img src="assets/logo.png" alt="S S Nayak & Associates Logo" class="logo">
-      <ul class="navlinks">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Our Services</a></li>
-        <li><a href="#partners">Our Partners</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1 id="firm-name">S S NAYAK & ASSOCIATES</h1>
-    <h2>Chartered Accountants</h2>
-    <p class="est">Est. 2002</p>
-    <p id="hero-desc" class="muted">Loading...</p>
-  </section>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="SS Nayak & Associates Logo">
+                <span>SS Nayak & Associates</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- About Us -->
-  <section id="about" class="two-col anim">
-    <div class="col-img">
-      <img src="assets/about-img.svg" alt="About illustration">
-    </div>
-    <div class="col-text markdown" id="about-content"></div>
-  </section>
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            SS Nayak & Associates is a leading accounting and business consultancy firm dedicated to 
+            providing expert financial advice, auditing, and tax services. With years of experience, 
+            we ensure your business thrives in a competitive market.
+        </p>
+    </section>
 
-  <!-- Law -->
-  <section id="law" class="two-col reverse anim">
-    <div class="col-text markdown" id="law-content"></div>
-    <div class="col-img">
-      <img src="assets/gavel.png" alt="Gavel icon">
-    </div>
-  </section>
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We offer a wide range of services to meet your business and financial needs.</p>
+        <ul>
+            <li>Tax Consulting</li>
+            <li>Auditing</li>
+            <li>Business Advisory</li>
+            <li>Financial Planning</li>
+        </ul>
+    </section>
 
-  <!-- Partners -->
-  <section id="partners" class="partners-section">
-    <div class="container">
-      <h2 class="section-title">Our Partners</h2>
+    <!-- Partners Section -->
+    <section id="partners">
+        <h2>Our Partners</h2>
+        <p>We collaborate with industry leaders to bring you the best solutions.</p>
+    </section>
 
-      <div class="partner-card">
-        <h3>CA Sanketh S Nayak</h3>
-        <p><strong>Qualified:</strong> 2012</p>
-        <p><strong>Qualifications:</strong> B.Com, FCA, Diploma in Information Systems Audit, Diploma in International Taxation, Registered Valuer (Securities &amp; Financial Assets), Certified Public Accountant (CPA), LLB</p>
-        <p><strong>Mobile:</strong> <a href="tel:+919731923492">9731923492</a></p>
-        <p><strong>Email:</strong> <a href="mailto:sankethsnayak@gmail.com">sankethsnayak@gmail.com</a></p>
-        <p><strong>Areas of Experience:</strong> Valuation, Direct Tax and Indirect Tax Litigation, International Tax Advisory, Fundraising Services</p>
-      </div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: contact@ssnayak.com</p>
+        <p>Phone: +91-9876543210</p>
+    </section>
 
-      <div class="partner-card">
-        <h3>CA S S Nayak</h3>
-        <p><strong>Qualified:</strong> 1988</p>
-        <p><strong>Qualifications:</strong> B.Com, FCA, LLB (Gen)</p>
-        <p><strong>Mobile:</strong> <a href="tel:+919845321005">9845321005</a></p>
-        <p><strong>Email:</strong> <a href="mailto:ssnayakoffice@gmail.com">ssnayakoffice@gmail.com</a></p>
-        <p><strong>Areas of Experience:</strong> Fundraising Services, Direct Tax Litigation, Audits (Bank Audit, Statutory Audit)</p>
-      </div>
+    <footer>
+        <p>&copy; 2025 SS Nayak & Associates. All rights reserved.</p>
+    </footer>
 
-      <div class="partner-card">
-        <h3>CA Pratiksha Pai</h3>
-        <p><strong>Qualified:</strong> 2013</p>
-        <p><strong>Qualifications:</strong> B.Com, FCA</p>
-        <p><strong>Mobile:</strong> <a href="tel:+919916871771">9916871771</a></p>
-        <p><strong>Email:</strong> <a href="mailto:ca.pratiksha.pai@gmail.com">ca.pratiksha.pai@gmail.com</a></p>
-        <p><strong>Areas of Experience:</strong> Direct Tax Litigation, GST Matters, Startup Advisory, Concurrent Bank Audit</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="two-col anim">
-    <div class="col-img">
-      <img src="assets/box-icon.svg" alt="Box icon">
-    </div>
-    <div class="col-text markdown" id="services-content"></div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="panel anim">
-    <h3 class="section-title">Contact Us</h3>
-    <div id="contact-content" class="markdown"></div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <small>© <span id="footer-year"></span> S S Nayak & Associates</small>
-  </footer>
-
-  <script src="app.js" defer></script>
 </body>
 </html>
