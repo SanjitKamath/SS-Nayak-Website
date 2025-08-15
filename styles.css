@@ -1,201 +1,74 @@
-/* ---------- Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
-
-/* ---------- Global Styles ---------- */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    background-color: #faf8f4;
-    color: #1e2a38;
-    line-height: 1.6;
-    font-family: 'Open Sans', sans-serif;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-/* ---------- Navbar ---------- */
-.site-header {
-    background: white;
-    padding: 15px 40px;
-    border-bottom: 1px solid #eee;
-}
-
-.nav {
+/* Navbar */
+.navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #003366;
+    color: white;
 }
 
 .logo {
-    height: 50px;
-}
-
-.navlinks {
-    list-style: none;
     display: flex;
-    gap: 40px;
+    align-items: center;
+    gap: 10px;
 }
 
-.navlinks a {
+.logo img {
+    height: 40px;
+}
+
+.logo span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
     text-decoration: none;
-    color: #1e2a38;
-    font-weight: 600;
+    color: white;
     font-size: 1rem;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.navlinks a:hover {
-    color: #c5a572;
+.nav-links a:hover {
+    color: #ffcc00;
 }
 
-/* ---------- Hero Section ---------- */
-.hero {
-    text-align: center;
-    padding: 50px 20px 30px;
-}
-
-.hero h1 {
-    font-family: 'Merriweather', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-}
-
-.hero h2 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.4rem;
-    margin-top: 8px;
-}
-
-.hero .est {
-    font-family: 'Merriweather', serif;
-    font-style: italic;
-    font-size: 0.9rem;
-    margin: 5px 0 15px;
-}
-
-.hero p.muted {
-    font-size: 0.95rem;
-    color: #555;
-    max-width: 700px;
+/* Sections */
+section {
+    padding: 50px;
+    max-width: 1000px;
     margin: auto;
 }
 
-/* ---------- Two-Column Sections ---------- */
-.two-col {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    max-width: 1100px;
-    margin: 60px auto;
-    gap: 40px;
-    padding: 0 20px;
-}
-
-.two-col.reverse {
-    flex-direction: row-reverse;
-}
-
-.col-img {
-    flex: 1;
-    min-width: 300px;
-}
-
-.col-text {
-    flex: 1;
-    min-width: 300px;
-    background-color: #fdfdfb;
-    padding: 20px;
-    border-radius: 6px;
-}
-
-/* ---------- Section Titles ---------- */
-.section-title {
-    font-family: 'Merriweather', serif;
-    font-size: 1.6rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* ---------- Partners Section ---------- */
-.partners-section {
-    background: white;
-    padding: 50px 20px;
-}
-
-.partner-card {
-    background: linear-gradient(135deg, #ffffff, #f4f4f4);
-    padding: 20px;
-    margin: 15px auto;
-    max-width: 900px;
-    border-radius: 6px;
-    border: 1px solid #eee;
-}
-
-.partner-card h3 {
-    font-family: 'Merriweather', serif;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
-
-.partner-card p {
-    font-size: 0.95rem;
-    margin-bottom: 5px;
-}
-
-/* ---------- Contact Section ---------- */
-.panel {
-    background: white;
-    padding: 50px 20px;
+#about {
+    background-color: #f8f9fa;
     text-align: center;
 }
 
-#contact-content {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
+#services, #partners, #contact {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: white;
     margin-top: 20px;
-}
-
-#contact-content p {
-    font-size: 0.95rem;
-}
-
-#contact-content a {
-    color: #1e2a38;
-    text-decoration: none;
-}
-
-#contact-content a:hover {
-    color: #c5a572;
-}
-
-/* ---------- Footer ---------- */
-.site-footer {
-    background: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #777;
-    border-top: 1px solid #eee;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 768px) {
-    .navlinks {
-        gap: 20px;
-    }
-    .two-col {
-        flex-direction: column;
-    }
 }
