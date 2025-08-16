@@ -1,3 +1,15 @@
+/* Add top padding to compensate for fixed navbar */
+.hero {
+  padding-top: calc(80px + 2rem); /* 80px = approx navbar height + extra spacing */
+}
+
+/* Optional: make it dynamic on mobile */
+@media(max-width:768px){
+  .hero {
+    padding-top: calc(60px + 1.5rem); /* slightly smaller on mobile */
+  }
+}
+
 /* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Open Sans',sans-serif; background:#faf8f4; color:#1e2a38; line-height:1.6; font-size:clamp(0.9rem,2vw,1rem); scroll-behavior:smooth; }
