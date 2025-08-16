@@ -8,6 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
+<script>
+  // Update footer year dynamically
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+  // Smooth scrolling for nav links without changing URL
+  document.querySelectorAll(".navlinks a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // stop URL hash change
+      const targetId = this.getAttribute("href").substring(1); // remove the '#'
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+</script>
+
 <body>
   <!-- Navbar -->
   <header class="site-header">
