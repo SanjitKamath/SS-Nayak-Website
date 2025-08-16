@@ -1,28 +1,16 @@
-/* Add top padding to compensate for fixed navbar */
-.hero {
-  padding-top: calc(80px + 2rem); /* 80px = approx navbar height + extra spacing */
-}
-
-/* Optional: make it dynamic on mobile */
-@media(max-width:768px){
-  .hero {
-    padding-top: calc(60px + 1.5rem); /* slightly smaller on mobile */
-  }
-}
-
 /* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Open Sans',sans-serif; background:#faf8f4; color:#1e2a38; line-height:1.6; font-size:clamp(0.9rem,2vw,1rem); scroll-behavior:smooth; }
 h2,h3 { font-family:'Merriweather',serif; color:#1e2a38; line-height:1.3; }
 
-/* Navbar */
+/* Navbar hidden/slide effect */
 .site-header { position:fixed; top:-80px; left:0; right:0; background:#fff; border-bottom:1px solid #ddd; z-index:1000; transition:top 0.3s ease; }
 .site-header.visible { top:0; }
 .nav { max-width:90%; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; padding:clamp(0.5rem,2vw,1rem) 0; }
 .logo { height:clamp(2rem,5vw,2.5rem); }
 .hamburger { display:none; font-size:2rem; cursor:pointer; }
 .navlinks { display:flex; gap:clamp(1rem,3vw,2rem); list-style:none; flex-wrap:wrap; }
-.navlinks a:hover { text-decoration:none; color:#1e2a38; font-weight:600; font-size:clamp(0.9rem,2vw,1rem); }
+.navlinks a { text-decoration:none; color:#1e2a38; font-weight:600; font-size:clamp(0.9rem,2vw,1rem); }
 .navlinks a:hover, .navlinks a.active { color:#c5a572; border-bottom:2px solid #c5a572; padding-bottom:2px; }
 
 /* Mobile Navbar */
@@ -33,12 +21,23 @@ h2,h3 { font-family:'Merriweather',serif; color:#1e2a38; line-height:1.3; }
   .navlinks li { text-align:center; padding:0.5rem 0; }
 }
 
-/* Hero */
-.hero { text-align:center; padding:clamp(2rem,6vw,4rem) 5%; }
+/* Hero Section with top padding for fixed navbar */
+.hero {
+  text-align:center;
+  padding-top: calc(80px + 2rem); /* compensates for navbar height */
+  padding-bottom: clamp(2rem,6vw,4rem);
+  padding-left:5%;
+  padding-right:5%;
+}
 .hero h1 { font-size:clamp(1.8rem,5vw,2.4rem); letter-spacing:clamp(1px,0.5vw,3px); }
 .hero h2 { font-size:clamp(1rem,3vw,1.4rem); margin:0.5rem 0; }
 .hero .est { font-style:italic; }
 .hero .muted { color:#4e525b; max-width:90%; margin:1rem auto 0; font-size:clamp(0.9rem,2vw,1rem); }
+
+/* Mobile Hero padding adjustment */
+@media(max-width:768px){
+  .hero { padding-top: calc(60px + 1.5rem); }
+}
 
 /* Sections */
 .section { padding:clamp(2rem,6vw,4rem) 5%; max-width:1200px; margin:auto; }
