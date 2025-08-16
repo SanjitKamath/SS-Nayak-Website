@@ -9,21 +9,44 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <script>
-  // Update footer year dynamically
+  // Footer year
   document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-  // Smooth scrolling for nav links without changing URL
+  // Smooth scrolling
   document.querySelectorAll(".navlinks a").forEach(link => {
     link.addEventListener("click", function (e) {
-      e.preventDefault(); // stop URL hash change
-      const targetId = this.getAttribute("href").substring(1); // remove the '#'
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
+        window.scrollTo({
+          top: targetElement.offsetTop - 60,
+          behavior: "smooth"
+        });
       }
     });
   });
+
+  // Highlight active section
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".navlinks a");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle(
+            "active",
+            link.getAttribute("href").substring(1) === entry.target.id
+          );
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(section => observer.observe(section));
 </script>
+
 
 <body>
   <!-- Navbar -->
