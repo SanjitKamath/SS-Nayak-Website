@@ -21,30 +21,22 @@ h2,h3 { font-family:'Merriweather',serif; color:#1e2a38; line-height:1.3; }
   .navlinks li { text-align:center; padding:0.5rem 0; }
 }
 
-/* Hero Section with top padding for fixed navbar */
-/* Hero Section with dynamic top padding for fixed navbar */
+/* Hero Section with fixed top padding to avoid overlap */
 .hero {
   text-align: center;
-  /* Base top padding + extra for navbar and safe area */
-  padding-top: calc( var(--navbar-height, 80px) + 2rem + env(safe-area-inset-top) );
+  padding-top: 120px; /* large enough to avoid hidden heading on mobile */
   padding-bottom: clamp(2rem,6vw,4rem);
   padding-left: 5%;
   padding-right: 5%;
 }
 
-/* Set the navbar height as a CSS variable */
-:root {
-  --navbar-height: 80px; /* default for desktop */
+/* Mobile adjustment */
+@media(max-width:768px){
+  .hero {
+    padding-top: 100px; /* smaller for mobile navbar */
+  }
 }
 
-@media(max-width:768px){
-  :root {
-    --navbar-height: 60px; /* mobile navbar height */
-  }
-  .hero {
-    padding-top: calc(var(--navbar-height) + 1.5rem + env(safe-area-inset-top));
-  }
-}
 
 /* Sections */
 .section { padding:clamp(2rem,6vw,4rem) 5%; max-width:1200px; margin:auto; }
