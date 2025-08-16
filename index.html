@@ -6,49 +6,13 @@
   <title>S S Nayak & Associates</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<script>
-  // Footer year
-  document.getElementById("footer-year").textContent = new Date().getFullYear();
-
-  // Smooth scrolling
-  document.querySelectorAll(".navlinks a").forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 60,
-          behavior: "smooth"
-        });
-      }
-    });
-  });
-
-  // Highlight active section
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".navlinks a");
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.classList.toggle(
-            "active",
-            link.getAttribute("href").substring(1) === entry.target.id
-          );
-        });
-      }
-    });
-  }, { threshold: 0.5 });
-
-  sections.forEach(section => observer.observe(section));
-</script>
-
-
 <body>
+
+  <!-- Navbar Hover Zone -->
+  <div class="top-hover-zone"></div>
+
   <!-- Navbar -->
   <header class="site-header">
     <nav class="nav">
@@ -156,7 +120,7 @@
     <h2 class="section-title gold-divider">Contact Us</h2>
     <div class="contact-info">
       <p><img src="assets/location-icon.png" alt=""> 302, Shreshta Bumi, K R Road, Bangalore 560 004</p>
-      <p><img src="assets/location-icon.png" alt=""> 1st Floor, Ibrose Commercial Complex,       MG Road, Mangalore 575003</p>
+      <p><img src="assets/location-icon.png" alt=""> 1st Floor, Ibrose Commercial Complex, MG Road, Mangalore 575003</p>
       <p><img src="assets/email-icon.png" alt=""> sankethsnayak@gmail.com</p>
       <p>Closed on Sundays</p>
     </div>
@@ -167,8 +131,42 @@
     <small>© <span id="footer-year"></span> S S Nayak & Associates</small>
   </footer>
 
+  <!-- JS -->
   <script>
+    // Footer year
     document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+    // Smooth scrolling without URL change
+    document.querySelectorAll(".navlinks a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    // Highlight active section
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".navlinks a");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href").substring(1) === entry.target.id
+            );
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => observer.observe(section));
   </script>
+
 </body>
 </html>
