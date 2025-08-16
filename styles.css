@@ -1,33 +1,50 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Fonts & Body */
 body {
   font-family: 'Open Sans', sans-serif;
   background: #faf8f4;
   color: #1e2a38;
   line-height: 1.6;
   font-size: clamp(0.9rem, 2vw, 1rem);
-}
-
-html {
   scroll-behavior: smooth;
 }
 
+/* Headings */
 h2, h3 {
   font-family: 'Merriweather', serif;
   color: #1e2a38;
   line-height: 1.3;
 }
 
+/* Navbar Hover Zone */
+.top-hover-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 1001;
+}
+
 /* Navbar */
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: #fff;
   border-bottom: 1px solid #ddd;
-  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
+
 .nav {
   max-width: 90%;
   margin: 0 auto;
@@ -35,6 +52,7 @@ h2, h3 {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: clamp(0.5rem, 2vw, 1rem) 0;
 }
 .logo {
   height: clamp(2rem, 5vw, 2.5rem);
@@ -51,8 +69,11 @@ h2, h3 {
   font-weight: 600;
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
-.navlinks a:hover {
+.navlinks a:hover,
+.navlinks a.active {
   color: #c5a572;
+  border-bottom: 2px solid #c5a572;
+  padding-bottom: 2px;
 }
 
 /* Hero */
@@ -93,7 +114,8 @@ h2, h3 {
 .reverse {
   direction: rtl;
 }
-.reverse .col-text, .reverse .col-img {
+.reverse .col-text,
+.reverse .col-img {
   direction: ltr;
 }
 .col-text h2 {
@@ -105,6 +127,13 @@ h2, h3 {
 }
 .col-text ul li {
   padding: 0.4rem 0;
+}
+
+/* Images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Partners */
