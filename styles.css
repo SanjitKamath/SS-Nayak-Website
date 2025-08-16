@@ -21,34 +21,51 @@ h2,h3 { font-family:'Merriweather',serif; color:#1e2a38; line-height:1.3; }
   .navlinks li { text-align:center; padding:0.5rem 0; }
 }
 
-/* Hero Section with fixed top padding to avoid overlap */
+/* Hero Section */
 .hero {
   text-align: center;
-  padding-top: 130px; /* large enough to avoid hidden heading on mobile */
-  padding-bottom: clamp(2rem,6vw,4rem);
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-top: 150px; /* ensure it doesn't overlap navbar */
+  padding-bottom: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Hero Headings */
-/* Import Montserrat at the top of your CSS or in the HTML head */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
-
+/* Main Title */
 .hero h1 {
-  font-family: 'Montserrat', sans-serif; /* Montserrat font */
-  font-size: clamp(2.5rem, 5vw, 43px); /* dynamic: min 2.5rem, max 43px */
-  font-weight: 900; /* extra bold */
-  letter-spacing: clamp(1px, 0.5vw, 3px);
-  line-height: 1.1;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 6px;  /* wider spacing */
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
-  color: #1e2a38;
+  color: #000;
 }
 
+/* Subtitle */
 .hero h2 {
-  font-size: clamp(1.5rem, 4vw, 2rem); /* smaller than h1 */
-  margin: 0.5rem 0;
-  font-weight: 600;
-  color: #1e2a38;
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-weight: 400;
+  margin: 0.5rem 0 1rem;
+  color: #222;
+}
+
+/* Est. 2002 in script font */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+.hero .est {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  margin: 0.8rem 0 1.5rem;
+  color: #333;
+}
+
+/* Muted paragraph */
+.hero .muted {
+  font-size: 1rem;
+  color: #5a4f4f;
+  line-height: 1.6;
+  max-width: 750px;
+  margin: 0 auto;
 }
 
 /* Mobile adjustment */
