@@ -10,16 +10,14 @@
 </head>
 <body>
 
-  <!-- Navbar Hover Zone -->
-  <div class="top-hover-zone"></div>
-
   <!-- Navbar -->
   <header class="site-header">
     <nav class="nav">
       <div class="logo-container">
         <img src="assets/logo.png" alt="S S Nayak & Associates Logo" class="logo">
       </div>
-      <ul class="navlinks">
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul class="navlinks" id="navlinks">
         <li><a href="#about">About Us</a></li>
         <li><a href="#services">Our Services</a></li>
         <li><a href="#partners">Our Partners</a></li>
@@ -131,41 +129,53 @@
     <small>© <span id="footer-year"></span> S S Nayak & Associates</small>
   </footer>
 
-  <!-- JS -->
   <script>
     // Footer year
     document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-    // Smooth scrolling without URL change
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const navlinks = document.getElementById("navlinks");
+    hamburger.addEventListener("click", () => navlinks.classList.toggle("open"));
+
+    // Smooth scroll & close menu on click
     document.querySelectorAll(".navlinks a").forEach(link => {
-      link.addEventListener("click", function(e) {
+      link.addEventListener("click", e => {
         e.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+        const target = document.getElementById(link.getAttribute("href").substring(1));
+        target.scrollIntoView({behavior:"smooth", block:"start"});
+        navlinks.classList.remove("open");
       });
     });
 
     // Highlight active section
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".navlinks a");
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.toggle(
-              "active",
-              link.getAttribute("href").substring(1) === entry.target.id
-            );
+        if(entry.isIntersecting){
+          navLinks.forEach(link=>{
+            link.classList.toggle("active", link.getAttribute("href").substring(1)===entry.target.id);
           });
         }
       });
-    }, { threshold: 0.5 });
+    },{threshold:0.5});
+    sections.forEach(section=>observer.observe(section));
 
-    sections.forEach(section => observer.observe(section));
+    // Navbar show/hide on desktop
+    const header = document.querySelector('.site-header');
+    let lastScrollY = window.scrollY;
+    function updateHeader(){
+      if(window.innerWidth > 768){
+        if(window.scrollY < lastScrollY) header.classList.add('visible');
+        else header.classList.remove('visible');
+        lastScrollY = window.scrollY;
+      } else header.classList.add('visible');
+    }
+    document.addEventListener('mousemove', e => { if(e.clientY<50 && window.innerWidth>768) header.classList.add('visible'); });
+    window.addEventListener('scroll', updateHeader);
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
   </script>
 
 </body>
