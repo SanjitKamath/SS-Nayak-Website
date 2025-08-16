@@ -12,6 +12,10 @@ body {
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h2, h3 {
   font-family: 'Merriweather', serif;
   color: #1e2a38;
